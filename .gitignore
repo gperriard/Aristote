@@ -1,0 +1,11 @@
+web/bundles/
+app/phpunit.xml
+app/bootstrap*
+app/logs/*
+app/cache/*
+app/config/parameters.ini
+app/phpunit.xml
+vendor
+vendor/*
+*.swp
+*.swo
