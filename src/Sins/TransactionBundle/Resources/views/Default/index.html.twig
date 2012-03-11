@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{ 'All transactions'|trans }}{% endblock %}
+{% block body %}
+<h2 class="row-fluid">All transactions</h2>
+<div class="row-fluid">
+	<div class="span12">
+		<table id="main" class="tablesorter table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>{{ 'Date'|trans }}</th>
+					<th>{{ 'Description'|trans }}</th>
+					<th colspan="2">{{ 'Amount'|trans }}</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr class="results">
+					<td colspan="2">{{ 'Total result'|trans }}</td>
+					<td>{{ debitsSum }}</td>
+					<td>{{ creditsSum }}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{ 'Balance'|trans }}</td>
+					<td colspan="2">{{ balance }}</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				{% for transaction in transactions %}
+				<tr>
+					<td>{{ transaction.registredAt | date('d.m.Y') }}</td>
+					<td>{{ transaction.description.name }}</td>
+
+					{% if transaction.amount >= 0 %}
+					<td>{{ transaction.amount }}</td>
+					<td></td>
+					{% else %}
+					<td></td>
+					<td>{{ transaction.amount }}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12">
+		<a href="" class="btn">{{ 'Add debit transaction'|trans }}</a>
+		<a href="" class="btn">{{ 'Add a credit transaction'|trans }}</a>
+	</div>
+</div>
+{% endblock %}
