@@ -1,7 +1,0 @@
-parameters:
-#    sins_transaction.example.class: Sins\TransactionBundle\Example
-
-services:
-#    sins_transaction.example:
-#        class: %sins_transaction.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
